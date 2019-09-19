@@ -56,7 +56,10 @@ docker run -d -p 5000:80 --name docx docx-server
   ├─ /docxCreater ----------------- 文档生成模块存放目录
   │   └─ helloWorld --------------- 示例模块
   │        └─ main.py ------------- 示例模块主函数入口
-  ├─ app.py ----------------------- flask 路由文件
+  ├─ /router ---------------------- 路由目录
+  │   └─ helloWorld --------------- 示例路由
+  │        └─ main.py ------------- 示例路由主函数入口
+  ├─ app.py ----------------------- flask 实例
   └─ wsgi.py ---------------------- gunicorn 部署文件
 nginx_setting --------------------- nginx 配置文件
 requirements.txt ------------------ 项目依赖
