@@ -6,10 +6,6 @@ from docxCreater.helloWorld.main import create as hello_world_create
 app = Flask(__name__)
 
 @app.route('/')
-def hello_world():
-    return 'hello world\n'
-
-@app.route('/docx')
 def download_file():
     file_stream = hello_world_create()
     filename = quote('helloWorld.docx')
@@ -18,4 +14,4 @@ def download_file():
     return rv
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port='80')
+    app.run(host='0.0.0.0', port='5000')
