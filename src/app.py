@@ -7,6 +7,10 @@ app = Flask(__name__)
 
 @app.route('/')
 def hello_world():
+    return 'hello world\n'
+
+@app.route('/docx')
+def download_file():
     file_stream = hello_world_create()
     filename = quote('helloWorld.docx')
     rv = send_file(file_stream, as_attachment=True, attachment_filename=filename)
