@@ -20,3 +20,17 @@ python src/app.py
 # 测试
 
 访问 `http://127.0.0.1:5000/`，会自动下载 `helloWorld.docx` 文件
+
+# docker 构建
+
+构建镜像:
+
+```
+docker build -t docx-server .
+```
+
+启动容器:
+
+```
+docker run -d -p 5000:80 --name docx docx-server
+```
