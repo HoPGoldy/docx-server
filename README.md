@@ -65,7 +65,7 @@ docker run -d -p 5000:80 --name docx docx-server
 本项目完成了项目的部署流程, 所以你可以把开发精力放在以下两部分:
 
 - **接口实现**: 通过将自定义的 url 接口添加到 `src/app.py`, 你可以实现诸如将给定参数插入到文档的功能
-- **word 生成**: 在 `src/docxCreater/` 下新建你的文档生成模块, 并在 `src/app.py` 中引入以在接口中使用它。
+- **word 生成**: 在 `src/docxCreater/` 下新建你的文档生成模块, 并在 `src/router/...` 中引入以在接口中使用它。
 
 # 项目结构
 
