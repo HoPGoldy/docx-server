@@ -1,14 +1,13 @@
 from docx import Document
-import io
+from ..utils import save
+
 
 def create():
+    '''
+    基本示例, 执行此方法即可获取文档流
+    RETURNS:
+        fileStream: 文档的 io 流
+    '''
     document = Document()
     document.add_paragraph('Hello World!')
     return save(document)
-
-def save(document):
-    fileStream = io.BytesIO()
-    document.save(fileStream)
-    fileStream.seek(0)
-
-    return fileStream
