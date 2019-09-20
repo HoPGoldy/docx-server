@@ -1,7 +1,7 @@
 #! /bin/bash
 
 echo "清除过期镜像"
-docker container rm -f docx-server
+docker container rm -f docx
 docker image rm docx-server
 echo "重新构建镜像"
 docker build -t docx-server .

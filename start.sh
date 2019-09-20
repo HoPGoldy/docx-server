@@ -6,10 +6,10 @@ PYTHONPATH=`pwd`/src gunicorn \
 --daemon -m 007 \
 --user www-data \
 --log-level debug \
---access-logfile /home/access.log \
---error-logfile /home/error.log \
+--access-logfile /home/flask-server/access.log \
+--error-logfile /home/flask-server/error.log \
 --worker-class gevent wsgi:app
 
 nginx
 
-tail -f /var/log/nginx/access.log
+tail -f /home/flask-server/access.log
