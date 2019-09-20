@@ -26,7 +26,25 @@ python src/app.py
 
 # 测试
 
-访问 `http://localhost:5000`，会自动下载 `helloWorld.docx` 文件
+- 基本示例
+
+  访问 [http://localhost:5000/download](http://localhost:5000/download) , 会自动下载 `helloWorld.docx` 文件。
+
+  - 文档生成代码位于 `src/docxCreater/helloWorld` 中。
+  - 接口代码位于 `src/router/helloWorld` 中。
+
+- 从模板生成示例
+
+  访问 [http://localhost:5000/template](http://localhost:5000/template) , 会自动从模板生成 `从模板生成.docx` 文件。你可以向该接口传递如下参数来自定义生成的文件, *不传参则使用默认项* :
+
+  |参数名|说明|
+  |:-:|:-:|
+  title|文档标题
+  content|文档正文
+  author|作者
+
+  - 文档生成代码位于 `src/docxCreater/createWithTemplate` 中。
+  - 接口代码位于 `src/router/createWithTemplate` 中。
 
 # docker 构建
 
@@ -53,12 +71,16 @@ docker run -d -p 5000:80 --name docx docx-server
 
 ```
 /src ------------------------------ 源代码目录
-  ├─ /docxCreater ----------------- 文档生成模块存放目录
-  │   └─ helloWorld --------------- 示例模块
-  │        └─ main.py ------------- 示例模块主函数入口
-  ├─ /router ---------------------- 路由目录
-  │   └─ helloWorld --------------- 示例路由
-  │        └─ main.py ------------- 示例路由主函数入口
+  ├─ /docxCreater ----------------- ◈ 文档生成模块目录
+  │   ├─ /helloWorld -------------- 基本示例
+  │   │    └─ main.py 
+  │   └─ /createWithTemplate ------ 从文档生成示例
+  │        └─ main.py 
+  ├─ /router ---------------------- ◈ 路由目录
+  │   ├─ /helloWorld -------------- 基本示例接口
+  │   │    └─ main.py 
+  │   └─ /createWithTemplate ------ 从文档生成示例接口
+  │        └─ main.py 
   ├─ app.py ----------------------- flask 实例
   └─ wsgi.py ---------------------- gunicorn 部署文件
 nginx_setting --------------------- nginx 配置文件
