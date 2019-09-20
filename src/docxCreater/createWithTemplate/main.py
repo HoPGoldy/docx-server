@@ -4,7 +4,7 @@ from ..utils import save, replace_text
 from .config import DEFAULT
 
 
-def create(title=DEFAULT['title'], content=DEFAULT['content'], author=DEFAULT['author']):
+def create(title, content, author):
     '''
     使用参数和模板生成文档
     ARGS:
@@ -16,9 +16,9 @@ def create(title=DEFAULT['title'], content=DEFAULT['content'], author=DEFAULT['a
     '''
     doc = Document('./src/docxCreater/createWithTemplate/template.docx')
 
-    replace_text(doc, '{{title}}', title)
-    replace_text(doc, '{{content}}', content)
+    replace_text(doc, '{{title}}', title or DEFAULT['title'])
+    replace_text(doc, '{{content}}', content or DEFAULT['content'])
     replace_text(doc, '{{date}}', time.strftime('%Y-%m-%d', time.localtime(time.time())))
-    replace_text(doc, '{{name}}', author)
+    replace_text(doc, '{{name}}', author or DEFAULT['author'])
     
     return save(doc)

@@ -11,7 +11,7 @@ router = Blueprint('template', __name__)
 def download_file():
     # 获取参数
     title = request.args.get("title")
-    content = request.args.get("title")
+    content = request.args.get("content")
     author = request.args.get("author")
     # 获取 word 的文件流
     file_stream = template_create(title, content, author)
