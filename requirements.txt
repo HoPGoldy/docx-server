@@ -8,5 +8,5 @@ Jinja2==2.10.1
 lxml==4.4.1
 MarkupSafe==1.1.1
 python-docx==0.8.10
-urllib3==1.25.3
+urllib3==1.25.8
 Werkzeug==0.15.6
